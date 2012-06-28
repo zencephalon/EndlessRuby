@@ -34,6 +34,10 @@ lines.each do |line|
    line.lstrip!
    line.rstrip!
 
+   if line.start_with?("#")
+      next
+   end
+
    until (post_top = post_stack.last).nil?
       puts "#{line_num} #{post_top[1]} #{next_non_zero(line_num, depths)}"
 
